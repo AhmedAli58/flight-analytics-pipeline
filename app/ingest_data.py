@@ -1,6 +1,7 @@
 import requests
 import zipfile
 import io
+import sys
 from pathlib import Path
 
 # A URL base para os dados de voos
@@ -27,6 +28,7 @@ def fetch_flight_data(year: int, month: int):
         
         # Usa ZipFile para extrair o conteúdo do .zip em memória
         with zipfile.ZipFile(io.BytesIO(response.content)) as z:
+            csv_found = False
             for member in z.infolist():
                 # Procura pelo arquivo .csv
                 if member.filename.endswith('.csv'):
@@ -39,14 +41,22 @@ def fetch_flight_data(year: int, month: int):
                         f.write(z.read(member.filename))
                     
                     print(f"Arquivo {member.filename} salvo com sucesso!")
-                    return
+                    csv_found = True
+                    break
 
-        print("Nenhum arquivo .csv encontrado no .zip.")
+            if not csv_found:
+                print("ERRO: Nenhum arquivo .csv encontrado no .zip.")
+                sys.exit(1)
 
     except requests.exceptions.RequestException as e:
-        print(f"Erro ao baixar os dados: {e}")
-    except zipfile.BadZipFile:
-        print("Erro: O arquivo baixado não é um .zip válido.")
+        print(f"ERRO: Falha ao baixar os dados: {e}")
+        sys.exit(1)
+    except zipfile.BadZipFile as e:
+        print(f"ERRO: O arquivo baixado não é um .zip válido: {e}")
+        sys.exit(1)
+    except Exception as e:
+        print(f"ERRO inesperado: {e}")
+        sys.exit(1)
 
 if __name__ == "__main__":
     # Exemplo de execução: baixar dados de Janeiro de 2024
